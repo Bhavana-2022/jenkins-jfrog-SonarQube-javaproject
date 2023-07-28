@@ -30,9 +30,9 @@ pipeline {
                  serverId: 'spcnightbuild' 
                )
                rtMavenRun (
+                  tool: 'DEFAULT',
                   pom: 'pom.xml',
                   goals: 'clean install',
-                  tool: 'DEFAULT',
                   deployerId:'spc-night-build'
                )
                rtPublishBuildInfo (
