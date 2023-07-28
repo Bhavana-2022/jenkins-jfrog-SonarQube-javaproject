@@ -24,19 +24,19 @@ pipeline {
         stage('build and package') {
            steps {
                rtMavenDeployer (
-                 id : 'spc-night-build',
-                 releaseRepo : 'spc-libs-release',
-                 snapshotRepo : 'spc-libs-snapshot',
-                 serverId : 'spcnightbuild' 
+                 id: 'spc-night-build',
+                 releaseRepo: 'spc-libs-release',
+                 snapshotRepo: 'spc-libs-snapshot',
+                 serverId: 'spcnightbuild' 
                )
                rtMavenRun (
-                  pom : 'pom.xml',
-                  goals : 'clean install',
-                  tool : 'maven-3.9.3',
-                  deployerId :'spc-night-build'
+                  pom: 'pom.xml',
+                  goals: 'clean install',
+                  tool: 'DEFAULT',
+                  deployerId:'spc-night-build'
                )
                rtPublishBuildInfo (
-                 serverId : 'spcnightbuild' 
+                 serverId: 'spcnightbuild' 
 
                )
 
