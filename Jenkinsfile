@@ -23,10 +23,26 @@ pipeline {
         }
         stage('build and package') {
            steps {
-               sh script: 'mvn package'
+               rtMavenDeployer (
+                 id : 'spc-night-build',
+                 releaseRepo : 'spc-libs-release',
+                 snapshotRepo : 'spc-libs-snapshot',
+                 serverId : 'spcnightbuild' 
+               )
+               rtMavenRun (
+                  pom : 'pom.xml',
+                  goals : 'clean install',
+                  tool : 'maven-3.9.3',
+                  deployerId :'spc-night-build'
+               )
+               rtPublishBuildInfo (
+                 serverId : 'spcnightbuild' 
+
+               )
+
+
            }
         }  
-
         stage('results') {
             steps{
                 archiveArtifacts artifacts: '**/target/*.jar'
