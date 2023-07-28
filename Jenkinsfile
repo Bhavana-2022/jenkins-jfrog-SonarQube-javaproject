@@ -1,7 +1,7 @@
 pipeline {
 
 
-    agent { label 'JDK-17' } 
+    agent { label 'JDK-8' } 
 
     triggers {
         pollSCM('* * * * *')
@@ -9,7 +9,7 @@ pipeline {
     
     }
     tools {
-        jdk 'JDK-8'
+        jdk 'JDK_17'
          
     }
 
