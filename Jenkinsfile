@@ -25,8 +25,8 @@ pipeline {
            steps {
                rtMavenDeployer (
                  id: 'spc-night-build',
-                 releaseRepo: 'spc-libs-release',
-                 snapshotRepo: 'spc-libs-snapshot',
+                 releaseRepo: 'spring-libs-release',
+                 snapshotRepo: 'spring-libs-snapshot',
                  serverId: 'spcnightbuild' 
                )
                rtMavenRun (
