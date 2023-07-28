@@ -9,7 +9,7 @@ pipeline {
     
     }
     tools {
-        jdk 'JDK_17'
+        jdk 'JDK-8'
          
     }
 
